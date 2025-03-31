@@ -16,57 +16,6 @@ interface ButtonProps {
   isRound?: boolean;
 }
 
-const BlogCard = ({
-  id,
-  image,
-  title,
-  excerpt,
-  date,
-  author,
-  isMain = false,
-}: any) => (
-  <Card
-    onClick={() =>
-      (window.location.href = `${ROUTES.BLOG}/${HELPER.getLastFourChars(
-        id
-      )}?b=${HELPER.convertSpacesToDash(title)}`)
-    }
-    className={`cursor-pointer overflow-hidden ${
-      isMain ? "mb-0" : "flex items-center gap-4 mb-4"
-    }`}
-  >
-    <div className={`${isMain ? "w-full" : "w-24 h-28 flex-shrink-0"}`}>
-      <Image
-        src={image}
-        alt={title}
-        className={`w-full ${isMain ? "h-48 lg:h-80" : "h-28"} object-cover`}
-        width={200}
-        height={200}
-        priority
-      />
-    </div>
-    <div className={`${isMain ? "p-4" : "py-2 pr-4"}`}>
-      <h3
-        className={`font-medium line-clamp-2 text-navy-900 ${
-          isMain ? "text-lg mb-2" : "text-sm mb-2"
-        }`}
-      >
-        {title}
-      </h3>
-      <p className="text-gray-600 text-base mb-2 line-clamp-2">{excerpt}</p>
-      <div className="flex items-center text-sm text-gray-500 gap-4">
-        <div className="flex items-center gap-1">
-          <Calendar className="w-4 h-4" />
-          <span className="text-md">{date}</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <PencilLine className="w-4 h-4" />
-          <span className="text-md">{author}</span>
-        </div>
-      </div>
-    </div>
-  </Card>
-);
 
 const ProductCard = ({ image, title, price, sold }: any) => (
   <Card className="bg-white h-full rounded-lg overflow-hidden">
@@ -213,7 +162,6 @@ const CategoryCard = ({ title, icon }: any) => (
 
 
 export const GlobalComponent = {
-  BlogCard,
   ProductCard,
   ProductCardSmall,
   CategoryCard,
